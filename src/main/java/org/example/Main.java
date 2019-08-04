@@ -12,11 +12,11 @@ public class Main {
         Scanner in = new Scanner(System.in);
 
         try {
-            System.out.println("Enter class name:");
+            System.out.println("Enter class name (hint: use 'org.example.model.Algorithm'):");
             String name = in.next();
             NewClassLoader cl = new NewClassLoader();
             Class c = cl.findClass(name);
-//        Class c = cl.findClass("org.example.model.Algorithm");
+//            Class c = cl.findClass("org.example.model.Algorithm");
             Method m = c.getDeclaredMethod("run");
             Object algorithm = c.newInstance();
             m.invoke(algorithm);

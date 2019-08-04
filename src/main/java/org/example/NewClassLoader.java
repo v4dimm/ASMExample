@@ -9,6 +9,11 @@ import java.io.ObjectOutputStream;
 
 public class NewClassLoader extends ClassLoader {
 
+    /*
+     * You can use "return" for return bytecode to MainClass
+     * Or create new class file with bytecode
+     * */
+
     @Override
     protected Class findClass(String name) throws ClassNotFoundException {
         try {
@@ -22,6 +27,7 @@ public class NewClassLoader extends ClassLoader {
             //begin make new byte code
             cr.accept(ca, ClassReader.EXPAND_FRAMES);
 
+            //new byte code
             byte b[] = cw.toByteArray();
 
 //            return defineClass(name, b, 0, b.length);
